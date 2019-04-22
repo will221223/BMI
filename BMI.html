@@ -1,0 +1,484 @@
+<html>
+
+<head>
+
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <title>BMI calculator practice</title>
+  <style>
+    html{
+      position:relative;  
+        min-height:100%; 
+    }
+      body{
+        background-color: rgb(236, 236, 236);
+        padding-bottom: 70px;
+        font-family: -apple-system,BlinkMacSystemFont,"Microsoft JhengHei","Segoe UI","Roboto","Helvetica Neue",Arial, Helvetica, sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+}
+    .nav {
+      background-color: #424242;
+      width: 100%;
+      height: 29.3%;
+      margin: 0;
+    }
+
+    .navbar {
+      background-color: #424242;
+      width: 100%;    
+    }
+
+    .btn{
+      width: 117px;
+      height: 117px;
+      padding: 0;
+      position: relative;
+      left: 16.9%;
+      top: 8.9%;
+      margin-bottom: 2.5%;
+    }
+
+    .navform{
+      display: inline-block;
+      
+      text-align: center;
+    }
+
+    .yellow{
+      font-size: 18px;
+      color: #FFD366;
+      position: relative;
+      right:14%;
+      margin:6px;
+    }
+
+    .txt{
+      border: 2px solid #FFD366;
+      border-radius: 5px;
+      background-color: rgba(255, 255, 255, 0.384);
+      padding:1.5 1.5 1.5 10px;
+      margin-bottom: 2px;
+      outline:none;
+      }
+    ::placeholder{
+      color: rgba(255,255,255,0.50);
+    }
+
+    .send{
+      width: 120px;
+      height: 120px;
+      background-color: #FFD366;
+      border-radius: 50%;
+      color: #424242;
+      font-size: 24px;
+      position: relative;
+      left: -200%;
+      border: 5px solid #FFD366;
+      outline:none;
+    }
+    .send:hover{
+      box-shadow: 0 1px 6px 3px rgba(255, 197, 50, 0.555);
+      cursor: pointer;
+      }
+    
+    li{
+      width: 60%;
+      height: 62px;
+      margin: auto;
+      background-color: white;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      font-size: 20px;
+      line-height: 62px;
+      }
+    footer{
+      /* height: 8.8%; */
+      background-color: #FFD366;
+      box-sizing: border-box;
+      position: absolute;
+      width:100%;
+      bottom: 0;
+      }
+
+    .footerimg{
+      width: 55px;
+      height: 55px;
+      filter: brightness(40%);
+      display:block; 
+      margin:auto;
+     }
+
+     .list-unstyled span{
+      font-size: 20px;
+      width: 80px;
+      margin-left: 12px;
+      }
+     .list-unstyled span span{
+      font-size: 12px;
+      margin-left: 42px;
+      margin-right: 10px;
+     }
+     .list-unstyled a{
+      font-size: 20px;
+      margin-left: 30px;
+      }
+
+      .innertxt{
+      font-size: 32px;
+      text-align: center;
+      padding: 25px;
+    }
+    .innertxts{
+      font-size: 11px;
+      position: relative;
+      left: 7px;
+      top:-10px;
+    }
+      .circleco1{
+      width: 120px;
+      height: 120px;
+      background-color: #424242;
+      border-radius: 50%;
+      color: #31BAF9;
+      font-size: 24px;
+      position: relative;
+      left: -200%;
+      border: 5px solid #31BAF9;
+      outline:none;
+    }
+    .circletxtco1{
+      color: #31BAF9;
+      position: relative;
+      margin-left: 10px;
+      left:120px;
+      top: -80px;
+    }
+    .circleimgco1{
+      background-size: cover;
+      background-position: center;
+      background-color: #31BAF9;
+      border-radius: 50%;
+      padding: 3px;
+      width: 19px;
+      height: 19px;
+      position: relative;
+      top:-12px;
+      left: 30px;
+    }
+    .circleimgco1:hover{
+      box-shadow: 0 1px 6px 3px rgb(35, 169, 231);
+    }
+    .circleco2{
+      width: 120px;
+      height: 120px;
+      background-color: #424242;
+      border-radius: 50%;
+      color: #86D73F;
+      font-size: 24px;
+      position: relative;
+      left: -200%;
+      border: 5px solid #86D73F;
+      outline:none;
+    }
+    .circletxtco2{
+      color: #86D73F;
+      position: relative;
+      margin-left: 10px;
+      left:120px;
+      top: -80px;
+    }
+    .circleimgco2{
+      background-size: cover;
+      background-position: center;
+      background-color: #86D73F;
+      border-radius: 50%;
+      padding: 3px;
+      width: 19px;
+      height: 19px;
+      position: relative;
+      top:-12px;
+      left: 30px;
+    }
+    .circleimgco2:hover{
+      box-shadow: 0 1px 6px 3px rgb(110, 199, 32);
+    }
+    .circleco3{
+      width: 120px;
+      height: 120px;
+      background-color: #424242;
+      border-radius: 50%;
+      color: #FF982D;
+      font-size: 24px;
+      position: relative;
+      left: -200%;
+      border: 5px solid #FF982D;
+      outline:none;
+    }
+    .circletxtco3{
+      color: #FF982D;
+      position: relative;
+      margin-left: 10px;
+      left:120px;
+      top: -80px;
+    }
+    .circleimgco3{
+      background-size: cover;
+      background-position: center;
+      background-color: #FF982D;
+      border-radius: 50%;
+      padding: 3px;
+      width: 19px;
+      height: 19px;
+      position: relative;
+      top:-12px;
+      left: 30px;
+    }
+    .circleimgco3:hover{
+      box-shadow: 0 1px 6px 3px #e98011;
+    }
+    .circleco4 , .circleco5{
+      width: 120px;
+      height: 120px;
+      background-color: #424242;
+      border-radius: 50%;
+      color: #FF6C03;
+      font-size: 24px;
+      position: relative;
+      left: -200%;
+      border: 5px solid #FF6C03;
+      outline:none;
+    }
+    .circletxtco4 , .circletxtco5{
+      color: #FF6C03;
+      position: relative;
+      margin-left: 10px;
+      left:120px;
+      top: -80px;
+    }
+    .circleimgco4 ,.circleimgco5{
+      background-size: cover;
+      background-position: center;
+      background-color: #FF6C03;
+      border-radius: 50%;
+      padding: 3px;
+      width: 19px;
+      height: 19px;
+      position: relative;
+      top:-12px;
+      left: 30px;
+    }
+    .circleimgco4:hover , .circleimgco5:hover{
+      box-shadow: 0 1px 6px 3px #da5c02;
+    }
+    .circleco6{
+      width: 120px;
+      height: 120px;
+      background-color: #424242;
+      border-radius: 50%;
+      color: #FF1200;
+      font-size: 24px;
+      position: relative;
+      left: -200%;
+      border: 5px solid #FF1200;
+      outline:none;
+    }
+    .circletxtco6{
+      color: #FF1200;
+      position: relative;
+      margin-left: 10px;
+      left:120px;
+      top: -80px;
+    }
+    .circleimgco6{
+      background-size: cover;
+      background-position: center;
+      background-color: #FF1200;
+      border-radius: 50%;
+      padding: 3px;
+      width: 19px;
+      height: 19px;
+      position: relative;
+      top:-12px;
+      left: 30px;
+    }
+    .circleimgco6:hover{
+      box-shadow: 0 1px 6px 3px #ce1205;
+    }
+      .co1{
+        border-left :#31BAF9 solid 7px; 
+       }
+      .co2{
+       border-left :#86D73F solid 7px;
+       }
+      .co3{
+      border-left :#FF982D solid 7px;
+      }
+      .co4{
+       border-left :#FF6C03 solid 7px;
+       }
+      .co5{
+       border-left :#FF6C03 solid 7px;
+       }
+      .co6{
+      border-left :#FF1200 solid 7px;
+      }
+
+     .clear{
+       clear: both;
+     }
+  </style>
+
+</head>
+
+<body>
+  <div class="nav">
+    <nav class="navbar ">
+      <img class="btn" src="./assets/BMICLogo.png">
+      <span class="navform col-sm-4">
+      <label for="Height" class="yellow">身高 cm</label><br />
+      <input type="text" class="txt cm" id="Height" placeholder="請輸入身高" ><br />
+      <label for="Weight" class="yellow">體重 kg</label><br />
+      <input type="text" class="txt kg" id="Weight" placeholder="請輸入體重" required><br />
+    </span>
+      <span class="asd">
+      <input type="button" class="send" value="看結果">
+      <!-- <div class="circleco1"><div class="innertxt">20.9<br> <span class="innertxts">BMI</span><img class="circleimgco1" src="./assets/icons_loop.png"></div><span class="circletxtco1">理想</span></div> -->
+    </span>
+    </nav>
+  </div>
+  <div class="container-fluid text-center clear">
+    <h3 class="text-center mt-5 mb-4">BMI紀錄</h3>
+    <ul class="list-unstyled">
+        
+     </ul>
+  </div>
+
+  <footer class="footer py-2 text-secondary text-center">
+    <img class="footerimg" src="./assets/BMICLogo.png">
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+    integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+    integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+    crossorigin="anonymous"></script>
+
+
+<script type="text/javascript">
+  var list = document.querySelector('.list-unstyled');
+  var text =document.querySelector('txt');
+  var cm = document.querySelector('.cm');
+  var kg = document.querySelector('.kg');
+  var send = document.querySelector('.send');
+  var asd = document.querySelector('.asd');
+  var circle = document.querySelector(".navbar");
+  var data = JSON.parse(localStorage.getItem('listData')) ||[];
+  var Today=new Date();
+  
+
+  send.addEventListener('click',addlist);
+  list.addEventListener('click',deleone);
+  updatelist(data);
+  
+  function addlist(e){
+    if(cm.value=="" || kg.value==""){
+      return alert("請輸入身高、體重")
+    }else if(isNaN(cm.value)==true || isNaN(kg.value)==true){
+      return alert("請輸入數字")}
+    
+    var hei=cm.value;
+    var wei=kg.value;
+    var bmi=(Number(wei)*Number(wei))/Number(hei);
+    var content ={
+      BMI: bmi.toFixed(2),
+      height: Number(hei),
+      weight: Number(wei),
+      date: (Today.getMonth()+1)+'-'+Today.getDate() +'-' +Today.getFullYear()
+    }
+    data.push(content);
+    asd.innerHTML = 
+    `<div class="circle${judge(data[i])}"><div class="innertxt">20.9<br> <span class="innertxts">BMI</span>
+    <img class="circleimg${judge(data[i])}" onclick="re()" style="cursor:pointer;" src="./assets/icons_loop.png"></div><span class="circletxt${judge(data[i])}">${status(data[i])}</span></div>`
+    localStorage.setItem('listData',JSON.stringify(data))
+    updatelist(data);
+    // console.log(content , data)
+  }
+
+  function re(){
+    asd.innerHTML = `<input type="button" class="send" value="看結果">`;
+    window.location.reload();
+    event.preventDefault();
+  }
+
+  function updatelist(data){
+    cm.value="";
+    kg.value="";
+    var newlist=[];
+    for(i=0;i<data.length;i++){
+      newlist += '<li class="'+judge(data[i])+'"><span style="float:left;">'+status(data[i])+'</span>'+
+        '<span><span>BMI</span>'+data[i].BMI+'</span>'+
+        '<span><span>Weight</span>'+data[i].weight+' kg</span>'+
+        '<span><span>Height</span>'+data[i].height+' cm</span>'+
+        '<span><span>'+data[i].date +'</span></span>'+
+        '<a href="#" data-index='+ i +'>刪除</a>'
+        '</li>'
+       }
+    list.innerHTML=newlist;
+  }
+
+  function judge(a){
+    
+    if(a.BMI >40){
+      return 'co6';
+    }else if(35<a.BMI && a.BMI<40){
+      return 'co5';
+    }else if(30<a.BMI && a.BMI<35){
+      return 'co4';
+    }else if(25<a.BMI && a.BMI<30){
+      return 'co3';
+    }else if(18.5<a.BMI && a.BMI<25){
+      return 'co2';
+    }else if(a.BMI <18.5){
+      return 'co1';
+    }
+  }
+
+  function status(a){
+    
+    if(a.BMI >40){
+      return '重度肥胖';
+    }else if(35<a.BMI && a.BMI<40){
+      return '中度肥胖';
+    }else if(30<a.BMI && a.BMI<35){
+      return '輕度肥胖';
+    }else if(25<a.BMI && a.BMI<30){
+      return '過重';
+    }else if(18.5<a.BMI && a.BMI<25){
+      return '理想';
+    }else if(a.BMI <18.5){
+      return '過輕';
+    }
+  }
+
+  function deleone(a){
+    a.preventDefault();
+    // console.log(a.target.dataset.index)
+    if(a.target.nodeName == 'A'){
+      var index=a.target.dataset.index;
+       data.splice(index,1);
+       localStorage.setItem('listData',JSON.stringify(data))
+       updatelist(data);
+    }
+  }
+  
+
+</script>
+</body>
+</html>
